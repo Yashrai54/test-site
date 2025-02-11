@@ -91,10 +91,10 @@ body {
     padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 
-  p {
-    overflow:scroll;
-    font-size: 0.4rem;
-    height:max-content;
-    /* Adjust paragraph font size */
-  }
+ p {
+  font-size: 0.8rem; /* Adjust for readability */
+  word-wrap: break-word;
+  height: auto; /* Let it grow */
+}
+
 }
