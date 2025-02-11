@@ -82,7 +82,7 @@ body {
 @media (max-width: 480px) {
   .typing-effect {
     font-size: 1.1rem;
-    overflow:visible;
+    overflow:auto;
     /* Further reduce font size for small screens */
   }
 
@@ -92,7 +92,7 @@ body {
   }
 
   p {
-    text-wrap: unset;
+    text-wrap:unset;
     font-size: 0.9rem; /* Adjust paragraph font size */
   }
 }
