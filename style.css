@@ -92,7 +92,8 @@ body {
   }
 
   p {
+    overflow:hidden;
     text-wrap:unset;
-    font-size: 0.9rem; /* Adjust paragraph font size */
+    font-size: 0.4rem; /* Adjust paragraph font size */
   }
 }
