@@ -1,15 +1,69 @@
 body {
-    background: linear-gradient(to bottom, black 40%, gold);
-    /* Optional: Ensure full height */
-    min-height: 100vh;
-    margin: 0;
-    /* Optional: Adjust gradient direction if needed */
-    background-size: cover;
-  }
-  
-.heading-container{
-    text-align: center;
+  background: linear-gradient(to bottom, black 50%, white);
+  min-height: 100vh;
+  margin: 0;
+  background-size: cover;
+ /* Apply gradient animation */
 }
-.btn{
+
+@keyframes gradientAnimation {
+0% {
+  background: linear-gradient(to bottom, black 40%, white);
+}
+50% {
+  background: linear-gradient(to bottom, white 40%, black);
+}
+100% {
+  background: linear-gradient(to bottom, black 40%, white);
+}
+}
+
+.heading-container {
+  text-align: center;
+  animation: slideIn 1s ease-out; /* Apply slide-in animation */
+}
+
+@keyframes slideIn {
+from {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+to {
+  transform: translateY(0);
+  opacity: 1;
+}
+}
+
+.btn {
   cursor: pointer;
+  transition: transform 0.3s ease;
+  background: linear-gradient(to right, black 40%, white);
+  background-size: 200% auto; /* Allows movement */
+  transition: background-position 0.5s ease-in-out; /* Smooth transition */
 }
+
+.btn:hover {
+  transform: scale(1.1);
+  background-position: right center; /* Moves gradient smoothly */
+}
+
+
+.typing-effect {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #C4AB82;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-top: 20px;
+  border-right: 2px solid #C4AB82; /* Cursor effect */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
