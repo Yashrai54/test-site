@@ -36,7 +36,7 @@ body {
 .btn {
   cursor: pointer;
   position: relative;
-  background: black;
+  background:linear-gradient(to right,black 40%, white);
   color: white;
   overflow: hidden;
   transition: transform 0.3s ease;
