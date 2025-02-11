@@ -83,9 +83,15 @@ body {
 }
 
 @media (max-width: 480px) {
+ /* For small screens */
+@media (max-width: 480px) {
   .typing-effect {
     font-size: 1.1rem;
-    overflow-wrap: visible; /* Further reduce font size for small screens */
+    overflow: auto; /* Allow overflow */
+    white-space: normal; /* Allow text to wrap onto the next line */
+    height: auto; /* Let the content expand naturally */
+    border-right: 2px solid #C4AB82; /* Cursor effect */
+    word-wrap: break-word; /* Ensure long words wrap properly */
   }
 
   .btn {
@@ -94,10 +100,11 @@ body {
   }
 
   p {
-    text-wrap: unset;
-    overflow: auto;
-    font-size: 0.9rem; 
-    height: max-content;
-    /* Adjust paragraph font size */
+    font-size: 0.4rem;
+    height: auto; /* Let paragraph expand naturally */
+    word-wrap: break-word; /* Break long words */
+    overflow: auto; /* Allow scrolling if content exceeds */
   }
+}
+
 }
