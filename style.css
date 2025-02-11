@@ -92,8 +92,9 @@ body {
   }
 
   p {
-    overflow:hidden;
-    text-wrap:unset;
+    overflow:scroll;
+    text-wrap:initial;
+    text-wrap-style:balance;
     font-size: 0.4rem; /* Adjust paragraph font size */
   }
 }
