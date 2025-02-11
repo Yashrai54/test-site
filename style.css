@@ -90,7 +90,6 @@ body {
     overflow: auto; /* Allow overflow */
     white-space: normal; /* Allow text to wrap onto the next line */
     height: auto; /* Let the content expand naturally */
-    border-right: 2px solid #C4AB82; /* Cursor effect */
     word-wrap: break-word; /* Ensure long words wrap properly */
   }
 
