@@ -77,6 +77,10 @@ body {
     font-size: 1rem; /* Adjust button font size */
     padding: 10px 20px; /* Increase padding for better touch targets */
   }
+  logo-container{
+    width:100vw;
+    height:100vh;
+  }
 }
 
 /* For small screens */
