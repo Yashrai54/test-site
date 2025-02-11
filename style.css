@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   margin: 0;
   background-size: cover;
-  animation: gradientAnimation 10s ease infinite; /* Apply gradient animation */
 }
 
 @keyframes gradientAnimation {
@@ -54,7 +53,6 @@ body {
   text-align: center;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   margin-top: 20px;
-  border-right: 2px solid #C4AB82; /* Cursor effect */
   white-space: nowrap;
   overflow: hidden;
   animation: blink 1s step-end infinite; /* Add blinking cursor effect */
