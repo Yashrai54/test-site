@@ -81,7 +81,9 @@ body {
 
 @media (max-width: 480px) {
   .typing-effect {
-    font-size: 1.1rem; /* Further reduce font size for small screens */
+    font-size: 1.1rem;
+    overflow:visible;
+    /* Further reduce font size for small screens */
   }
 
   .btn {
