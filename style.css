@@ -36,7 +36,7 @@ body {
 .btn {
   cursor: pointer;
   position: relative;
-  background:silver;
+  background:black;
   color: white;
   overflow: hidden;
   transition: transform 0.3s ease;
