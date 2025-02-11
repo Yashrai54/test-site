@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(to bottom, black 40%, gold);
+    /* Optional: Ensure full height */
+    min-height: 100vh;
+    margin: 0;
+    /* Optional: Adjust gradient direction if needed */
+    background-size: cover;
+  }
+  
+.heading-container{
+    text-align: center;
+}
+.btn{
+  cursor: pointer;
+}
