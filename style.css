@@ -3,19 +3,19 @@ body {
   min-height: 100vh;
   margin: 0;
   background-size: cover;
- /* Apply gradient animation */
+  animation: gradientAnimation 10s ease infinite; /* Apply gradient animation */
 }
 
 @keyframes gradientAnimation {
-0% {
-  background: linear-gradient(to bottom, black 40%, white);
-}
-50% {
-  background: linear-gradient(to bottom, white 40%, black);
-}
-100% {
-  background: linear-gradient(to bottom, black 40%, white);
-}
+  0% {
+    background: linear-gradient(to bottom, black 40%, white);
+  }
+  50% {
+    background: linear-gradient(to bottom, white 40%, black);
+  }
+  100% {
+    background: linear-gradient(to bottom, black 40%, white);
+  }
 }
 
 .heading-container {
@@ -24,29 +24,27 @@ body {
 }
 
 @keyframes slideIn {
-from {
-  transform: translateY(-50px);
-  opacity: 0;
-}
-to {
-  transform: translateY(0);
-  opacity: 1;
-}
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .btn {
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-position 0.5s ease-in-out; /* Combine transitions */
   background: linear-gradient(to right, black 40%, white);
   background-size: 200% auto; /* Allows movement */
-  transition: background-position 0.5s ease-in-out; /* Smooth transition */
 }
 
 .btn:hover {
   transform: scale(1.1);
   background-position: right center; /* Moves gradient smoothly */
 }
-
 
 .typing-effect {
   font-size: 1.5rem;
@@ -59,6 +57,7 @@ to {
   border-right: 2px solid #C4AB82; /* Cursor effect */
   white-space: nowrap;
   overflow: hidden;
+  animation: blink 1s step-end infinite; /* Add blinking cursor effect */
 }
 
 /* Blinking cursor */
@@ -66,4 +65,35 @@ to {
   50% { border-color: transparent; }
 }
 
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .typing-effect {
+    font-size: 1.3rem; /* Slightly smaller font size */
+  }
 
+  .btn {
+    font-size: 1rem; /* Adjust button font size */
+    padding: 10px 20px; /* Increase padding for better touch targets */
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-effect {
+    font-size: 1.1rem; /* Further reduce font size for small screens */
+  }
+
+  .btn {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+
+  p {
+    text-wrap: unset;
+    overflow: auto;
+    font-size: 0.9rem; /* Adjust paragraph font size */
+  }
+}
