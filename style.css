@@ -93,7 +93,6 @@ body {
 
   p {
     text-wrap: unset;
-    overflow: auto;
     font-size: 0.9rem; /* Adjust paragraph font size */
   }
 }
