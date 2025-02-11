@@ -3,21 +3,24 @@ body {
   min-height: 100vh;
   margin: 0;
   background-size: cover;
-  font-family: Arial, sans-serif; /* Add a default font for better readability */
+  
 }
 
 @keyframes gradientAnimation {
-  0%, 100% {
+  0% {
     background: linear-gradient(to bottom, black 40%, white);
   }
   50% {
     background: linear-gradient(to bottom, white 40%, black);
   }
+  100% {
+    background: linear-gradient(to bottom, black 40%, white);
+  }
 }
 
 .heading-container {
   text-align: center;
-  animation: slideIn 1s ease-out;
+  animation: slideIn 1s ease-out; /* Apply slide-in animation */
 }
 
 @keyframes slideIn {
@@ -33,35 +36,14 @@ body {
 
 .btn {
   cursor: pointer;
-  position: relative;
-  background: black;
-  color: white;
-  border: none; /* Ensure no default border */
-  padding: 10px 20px; /* Add padding for better clickability */
-  font-size: 1rem; /* Set a default font size */
-  overflow: hidden;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  transition: transform 0.3s ease, background-position 0.5s ease-in-out; /* Combine transitions */
   background: linear-gradient(to right, black 40%, white);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  background-size: 200% auto; /* Allows movement */
 }
 
 .btn:hover {
   transform: scale(1.1);
-  background: #333; /* Slightly lighter background on hover */
-}
-
-.btn:hover::after {
-  opacity: 1;
+  background-position: right center; /* Moves gradient smoothly */
 }
 
 .typing-effect {
@@ -72,16 +54,11 @@ body {
   text-align: center;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   margin-top: 20px;
+/* Cursor effect */
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid #C4AB82; /* Add a cursor effect */
-  animation: blink 1s step-end infinite, typing 3s steps(40, end) infinite; /* Typing animation */
-}
-
-/* Typing animation */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  text-wrap-style:pretty;
+  animation: blink 1s step-end infinite; /* Add blinking cursor effect */
 }
 
 /* Blinking cursor */
@@ -94,40 +71,33 @@ body {
     padding: 20px;
     overflow: hidden;
   }
-
+  
   .typing-effect {
-    font-size: 1.3rem;
-    white-space: normal; /* Allow text to wrap on smaller screens */
+    font-size: 0.4rem; /* Slightly smaller font size */
   }
 
   .btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  .logo-container {
-    width: 100vw;
-    height: 100vh;
-    margin: 10px;
+    font-size: 1rem; /* Adjust button font size */
+    padding: 10px 20px; /* Increase padding for better touch targets */
   }
 }
 
 @media (max-width: 480px) {
   .typing-effect {
     font-size: 1.1rem;
-    white-space: normal;
-    border-right: none; /* Remove cursor effect for wrapped text */
+    overflow-wrap: visible; /* Further reduce font size for small screens */
   }
 
   .btn {
-    font-size: 0.9rem;
-    padding: 8px 16px;
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 
   p {
-    font-size: 0.9rem; /* Slightly larger font size for readability */
-    height: auto;
-    word-wrap: break-word;
+    text-wrap: unset;
     overflow: auto;
+    font-size: 0.9rem; 
+    height: max-content;
+    /* Adjust paragraph font size */
   }
 }
