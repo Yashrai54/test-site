@@ -1,9 +1,10 @@
 body {
-  background: linear-gradient(to bottom, black 50%, white);
+  background: linear-gradient(to right, black 65%, white);
   min-height: 100vh;
   margin: 0;
+  font-family: "Montserrat", sans-serif;;
+  color: white;
   background-size: cover;
-  animation: gradientAnimation 10s ease infinite; /* Apply gradient animation */
 }
 
 @keyframes gradientAnimation {
@@ -20,7 +21,7 @@ body {
 
 .heading-container {
   text-align: center;
-  animation: slideIn 1s ease-out; /* Apply slide-in animation */
+  animation: slideIn 1s ease-out;
 }
 
 @keyframes slideIn {
@@ -36,64 +37,173 @@ body {
 
 .btn {
   cursor: pointer;
-  transition: transform 0.3s ease, background-position 0.5s ease-in-out; /* Combine transitions */
-  background: linear-gradient(to right, black 40%, white);
-  background-size: 200% auto; /* Allows movement */
+  position: relative;
+  background: black;
+  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .btn:hover {
   transform: scale(1.1);
-  background-position: right center; /* Moves gradient smoothly */
+  background: #756346;
 }
 
 .typing-effect {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-style: italic;
   color: #C4AB82;
   text-align: center;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   margin-top: 20px;
-  border-right: 2px solid #C4AB82; /* Cursor effect */
   white-space: nowrap;
   overflow: hidden;
-  animation: blink 1s step-end infinite; /* Add blinking cursor effect */
+  border-right: 2px solid #C4AB82;
+  animation: typing 3s steps(40, end), blink 0.8s infinite;
 }
 
-/* Blinking cursor */
 @keyframes blink {
   50% { border-color: transparent; }
 }
 
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Card Styling */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Heading inside Card */
+.card h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #E0C495;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Paragraph inside Card */
+.card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: white;
+  text-align: justify;
+}
+
+/* Unordered List inside Card */
+.card ul {
+  padding-left: 20px;
+}
+
+.card ul li {
+  font-size: 1.2rem;
+  color: #E0C495;
+}
+
+.card ul li p {
+  font-size: 1rem;
+  color: white;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   body {
     padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
   }
-  
+
   .typing-effect {
-    font-size: 1.3rem; /* Slightly smaller font size */
+    font-size: 1rem;
+    white-space: normal;
+    border-right: none;
   }
 
   .btn {
-    font-size: 1rem; /* Adjust button font size */
-    padding: 10px 20px; /* Increase padding for better touch targets */
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .card ul li {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .typing-effect {
-    font-size: 1.1rem; /* Further reduce font size for small screens */
+    font-size: 0.9rem;
+    white-space: normal;
+    word-wrap: break-word;
   }
 
   .btn {
-    font-size: 0.9rem; /* Adjust button font size */
-    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem;
+    padding: 8px 14px;
   }
 
-  p {
-    text-wrap: unset;
-    overflow: auto;
-    font-size: 0.9rem; /* Adjust paragraph font size */
+  .card {
+    width: 95%;
+    padding: 12px;
+  }
+
+  .card h1 {
+    font-size: 1.4rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .card ul li {
+    font-size: 0.9rem;
   }
 }
+ol {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+ol li {
+  font-size: 1.2rem;
+  color: #E0C495;
+  margin-bottom: 8px;
+}
+
+.desc {
+  color: white;
+  font-weight: normal;
+}
+
