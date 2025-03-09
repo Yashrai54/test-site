@@ -1,33 +1,105 @@
 body {
-  background: linear-gradient(to right, black 50%, black);
+  background: linear-gradient(to bottom, black 50%,black);
   min-height: 100vh;
   margin: 0;
   font-family: "Montserrat", sans-serif;;
   color: white;
   background-size: cover;
+  
 }
-.logo-container{
-  display: flex;
-  justify-content: space-around;
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(to bottom, black 40%, white);
+  }
+  50% {
+    background: linear-gradient(to bottom, white 40%, black);
+  }
+  100% {
+    background: linear-gradient(to bottom, black 40%, white);
+  }
 }
-.menu{
-  background:khaki;
-  width: 200px;
-  height:max-content;
-  position:fixed;
-  display: none;
-  right: 0;
+
+.heading-container {
+  text-align: center;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  position: relative;
+  background: black;
+  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  background: black;
+  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+/* Hamburger Icon Styling */
+#hamburger {
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+  transition: transform 0.3s ease-in-out; /* Smooth rotation */
+}
+
+/* Rotate Hamburger When Active */
+#hamburger.active {
+  transform: rotate(90deg); /* Rotates 90 degrees when clicked */
+}
+
+/* Smooth Menu Opening */
+.menu {
+  background: rgba(240, 230, 140, 0.95); /* Softer goldenrod */
+  width: 220px;
+  height: auto;
+  position: fixed;
+  right: -250px; /* Start hidden */
+  top: 60px;
   margin: 10px;
-  padding: 10px;
-  color: black;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
 }
-.menu ul{
-  list-style:georgian;
+
+/* Show Menu When Active */
+.menu.show {
+  right: 10px; /* Move into view */
+  opacity: 1;
 }
-.menu a{
-  color: black;
-  font-family: "Montserrat", sans-serif;
-  text-decoration: black;
+
+/* Hover Effect */
+.menu ul li:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  color: #333;
 }
 .menu {
   background: rgba(240, 230, 140, 0.95); /* Softer goldenrod with slight transparency */
@@ -82,100 +154,28 @@ body {
 .menu a:hover {
   color: #333; /* Darker text on hover */
 }
-/* Hamburger Icon Styling */
-#hamburger {
-  cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 100;
-  transition: transform 0.3s ease-in-out; /* Smooth rotation */
-}
 
-/* Rotate Hamburger When Active */
-#hamburger.active {
-  transform: rotate(90deg); /* Rotates 90 degrees when clicked */
-}
-
-/* Smooth Menu Opening */
-.menu {
-  background: rgba(240, 230, 140, 0.95); /* Softer goldenrod */
-  width: 220px;
-  height: auto;
-  position: fixed;
-  right: -250px; /* Start hidden */
-  top: 60px;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, black 40%, white);
   opacity: 0;
-}
-
-/* Show Menu When Active */
-.menu.show {
-  right: 10px; /* Move into view */
-  opacity: 1;
-}
-
-/* Hover Effect */
-.menu ul li:hover {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-.menu a:hover {
-  color: #333;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background: linear-gradient(to bottom, black 40%, white);
-  }
-  50% {
-    background: linear-gradient(to bottom, white 40%, black);
-  }
-  100% {
-    background: linear-gradient(to bottom, black 40%, white);
-  }
-}
-
-.heading-container {
-  text-align: center;
-  animation: slideIn 1s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.btn {
-  cursor: pointer;
-  position: relative;
-  background: black;
-  color: white;
-  overflow: hidden;
-  transition: transform 0.3s ease, background 0.3s ease;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .btn:hover {
   transform: scale(1.1);
   background: #756346;
 }
+
+.btn:hover::after {
+  opacity: 1;
+}
+
 
 .typing-effect {
   font-size: 1.2rem;
@@ -185,10 +185,13 @@ body {
   text-align: center;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   margin-top: 20px;
+/* Cursor effect */
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid #C4AB82;
   animation: typing 3s steps(40, end), blink 0.8s infinite;
+  text-wrap-style:pretty;
+  animation: blink 1s step-end infinite; /* Add blinking cursor effect */
 }
 
 @keyframes blink {
@@ -260,6 +263,7 @@ body {
     font-size: 1rem;
     white-space: normal;
     border-right: none;
+    font-size: 0.4rem; /* Slightly smaller font size */
   }
 
   .btn {
@@ -286,15 +290,135 @@ body {
 }
 
 @media (max-width: 480px) {
+ /* For small screens */
+@media (max-width: 480px) {
   .typing-effect {
     font-size: 0.9rem;
     white-space: normal;
     word-wrap: break-word;
+    font-size: 1.1rem;
+    overflow: auto; /* Allow overflow */
+    white-space: normal; /* Allow text to wrap onto the next line */
+    height: auto; /* Let the content expand naturally */
+    word-wrap: break-word; /* Ensure long words wrap properly */
   }
 
   .btn {
-    font-size: 0.9rem;
-    padding: 8px 14px;
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+
+  p {
+    font-size: 0.4rem;
+    height: auto; /* Let paragraph expand naturally */
+    word-wrap: break-word; /* Break long words */
+    overflow: auto; /* Allow scrolling if content exceeds */
+  }
+}
+
+}
+/* Container Grid for Cards */
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Card Headings */
+.card h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #E0C495;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+/* Subheading (Region) */
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #C4AB82;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Obtainables Heading */
+.card h3 {
+  font-size: 1.3rem;
+  color: #F4C542;
+  margin-top: 15px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/* Improve List Styling Inside Cards */
+.card ul {
+  padding-left: 20px;
+}
+
+.card ul li {
+  font-size: 1.1rem;
+  color: #E0C495;
+  margin-bottom: 5px;
+}
+
+
+.card img {
+  width: 100%; /* Makes images responsive */
+  height: 200px; /* Ensures uniform height */
+  border-radius: 10px; /* Smooth rounded corners */
+  object-fit: cover; /* Crops excess and fills the container */
+  object-position: center top; /* Adjusts focus to the top part */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.card img:hover {
+  transform: scale(1.05);
+}
+/* 🌍 For Tablets (768px and below) */
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust grid */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .card img {
+    height: 180px; /* Slightly smaller images */
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 For Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .container-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 10px;
+    padding: 10px;
   }
 
   .card {
@@ -302,30 +426,79 @@ body {
     padding: 12px;
   }
 
+  .card img {
+    height: 160px; /* Adjust image height for mobile */
+  }
+
   .card h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
   }
 
   .card p {
     font-size: 0.9rem;
   }
+}
+/* 🌍 Tablets (768px and below) */
+@media (max-width: 768px) {
+  #hamburger {
+    top: 10px;
+    right: 15px; /* Adjust position for smaller screens */
+    width: 35px; /* Slightly smaller */
+    height: 35px;
+  }
 
-  .card ul li {
-    font-size: 0.9rem;
+  .menu {
+    width: 180px; /* Reduce menu width */
+    right: -200px; /* Keep it hidden off-screen */
+    padding: 12px;
+  }
+
+  .menu.show {
+    right: 10px; /* Adjust for visibility */
+  }
+
+  .menu ul li {
+    padding: 8px;
+  }
+
+  .menu a {
+    font-size: 16px; /* Slightly smaller text */
   }
 }
-ol {
-  padding-left: 20px;
-  margin-top: 10px;
+
+/* 📱 Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  #hamburger {
+    top: 8px;
+    right: 12px; /* More padding from edge */
+    width: 30px;
+    height: 30px;
+  }
+
+  .menu {
+    width: 160px; /* Even smaller for compact view */
+    right: -180px; /* Keep it off-screen initially */
+    padding: 10px;
+  }
+
+  .menu.show {
+    right: 5px; /* Ensure it's visible */
+  }
+
+  .menu ul li {
+    padding: 6px;
+  }
+
+  .menu a {
+    font-size: 14px; /* Make text smaller for mobile */
+  }
 }
 
-ol li {
-  font-size: 1.2rem;
-  color: #E0C495;
-  margin-bottom: 8px;
-}
-
-.desc {
-  color: white;
-  font-weight: normal;
-}
