@@ -1,10 +1,133 @@
 body {
-  background: linear-gradient(to right, black 65%, white);
+  background: linear-gradient(to right, black 50%, black);
   min-height: 100vh;
   margin: 0;
   font-family: "Montserrat", sans-serif;;
   color: white;
   background-size: cover;
+}
+.logo-container{
+  display: flex;
+  justify-content: space-around;
+}
+.menu{
+  background:khaki;
+  width: 200px;
+  height:max-content;
+  position:fixed;
+  display: none;
+  right: 0;
+  margin: 10px;
+  padding: 10px;
+  color: black;
+}
+.menu ul{
+  list-style:georgian;
+}
+.menu a{
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: black;
+}
+.menu {
+  background: rgba(240, 230, 140, 0.95); /* Softer goldenrod with slight transparency */
+  width: 220px;
+  height: auto;
+  position: fixed;
+  right: 10px; /* Slightly spaced from edge */
+  top: 60px; /* Adjusted for better placement */
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px; /* Smooth edges */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+}
+
+/* Menu List */
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Menu List Items */
+.menu ul li {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Divider for cleaner look */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Remove border from last item */
+.menu ul li:last-child {
+  border-bottom: none;
+}
+
+/* Menu Links */
+.menu a {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.menu ul li:hover {
+  background: rgba(0, 0, 0, 0.1); /* Slight dark highlight */
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  color: #333; /* Darker text on hover */
+}
+/* Hamburger Icon Styling */
+#hamburger {
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+  transition: transform 0.3s ease-in-out; /* Smooth rotation */
+}
+
+/* Rotate Hamburger When Active */
+#hamburger.active {
+  transform: rotate(90deg); /* Rotates 90 degrees when clicked */
+}
+
+/* Smooth Menu Opening */
+.menu {
+  background: rgba(240, 230, 140, 0.95); /* Softer goldenrod */
+  width: 220px;
+  height: auto;
+  position: fixed;
+  right: -250px; /* Start hidden */
+  top: 60px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+/* Show Menu When Active */
+.menu.show {
+  right: 10px; /* Move into view */
+  opacity: 1;
+}
+
+/* Hover Effect */
+.menu ul li:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  color: #333;
 }
 
 @keyframes gradientAnimation {
@@ -206,4 +329,3 @@ ol li {
   color: white;
   font-weight: normal;
 }
-
