@@ -309,10 +309,16 @@ body {
   }
 
   p {
+<<<<<<< HEAD
     font-size: 0.4rem;
     height: auto; /* Let paragraph expand naturally */
     word-wrap: break-word; /* Break long words */
     overflow: auto; /* Allow scrolling if content exceeds */
+=======
+    overflow:hidden;
+    text-wrap:unset;
+    font-size: 0.4rem; /* Adjust paragraph font size */
+>>>>>>> 9062e1d (Update style.css)
   }
 }
 
