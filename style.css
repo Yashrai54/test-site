@@ -519,4 +519,12 @@ footer a:hover {
   .menu a {
     font-size: 14px; /* Make text smaller for mobile */
   }
+  #background-video {
+    display: none;
+  }
+  
+  body {
+    background: url('assets/castle.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
 }
