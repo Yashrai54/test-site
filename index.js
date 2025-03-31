@@ -19,3 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("#hamburger or #menu not found!");
   }
 });
+var audio=new Audio("assets/backgroundaudio.mp3");
+audio.addEventListener("canplaythrough", () => {
+  audio.play().catch(e => {
+     window.addEventListener('click', () => {
+        audio.play()
+     })
+  })
+});
