@@ -5,9 +5,16 @@ body {
   font-family: "Montserrat", sans-serif;;
   color: white;
   background-size: cover;
-  
 }
-
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
 @keyframes gradientAnimation {
   0% {
     background: linear-gradient(to bottom, black 40%, white);
@@ -34,6 +41,27 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+footer {
+  position: fixed;  /* Sticks it at the bottom */
+  bottom: 10px;     /* Adds a little space from bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Centers it */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white; /* White text */
+  padding: 5px 10px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+footer a {
+  color: #1E90FF; /* Light blue for the link */
+  text-decoration: none; /* No underline */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Underline on hover */
 }
 
 .btn {
@@ -71,25 +99,17 @@ body {
 
 /* Smooth Menu Opening */
 .menu {
-  background: rgba(240, 230, 140, 0.95); /* Softer goldenrod */
-  width: 220px;
-  height: auto;
-  position: fixed;
-  right: -250px; /* Start hidden */
-  top: 60px;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  opacity: 0;
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 60px; /* Adjust as needed */
+  right: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-/* Show Menu When Active */
-.menu.show {
-  right: 10px; /* Move into view */
-  opacity: 1;
+.show-menu {
+  display: block;
 }
 
 /* Hover Effect */
@@ -309,16 +329,10 @@ body {
   }
 
   p {
-<<<<<<< HEAD
     font-size: 0.4rem;
     height: auto; /* Let paragraph expand naturally */
     word-wrap: break-word; /* Break long words */
     overflow: auto; /* Allow scrolling if content exceeds */
-=======
-    overflow:hidden;
-    text-wrap:unset;
-    font-size: 0.4rem; /* Adjust paragraph font size */
->>>>>>> 9062e1d (Update style.css)
   }
 }
 
@@ -392,7 +406,6 @@ body {
     gap: 15px;
     padding: 15px;
   }
-
   .card {
     width: 90%;
     padding: 15px;
@@ -507,4 +520,3 @@ body {
     font-size: 14px; /* Make text smaller for mobile */
   }
 }
-

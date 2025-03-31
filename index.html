@@ -10,6 +10,9 @@
       </style>
 </head>
 <body>
+  <video autoplay loop muted playsinline id="background-video">
+    <source src="assets/backgroundgif.mov" type="video/mp4">
+</video>
     <div class="image-container">
         <nav class="logo-container">
             <img src="assets/logo.jpg" alt="" width="150" height="150">
@@ -88,6 +91,33 @@
 
           </div>
           <div class="card">
+            <h1>Currency System</h1>
+            <p>
+              <ul>
+                <li>
+                  <strong>Coins</strong>
+                  <p> Earned by defeating monsters. Used to buy items from the trader and can be exchanged for Clovers.</p>
+                </li>
+                <li>
+                  <strong>Clovers</strong>
+                  <p>A rare currency that can sometimes be obtained from monsters. Pets with good luck may also bring you more. Used in summoning to obtain Xylo, Coins, Stardust, and more.</p>
+                </li>
+                <li>
+                  <strong>Xylo</strong>
+                  <p>Used to summon legends (requires 3 Xylo per summon). It can only be obtained by summoning with Clovers.  </p>
+                </li>
+                <li>
+                  <strong>Gold</strong>
+                  <p>Obtained every 5 levels and can be used to summon legends. Also given during giveaways and events.  </p>
+                </li>
+                <li>
+                  <strong>Stardust</strong>
+                  <p>The rarest summoning item, used to upgrade legends by enhancing their stats and abilities. It can only be obtained through summons.</p>
+                </li>
+              </ul>
+            </p>
+          </div>
+          <div class="card">
               <h1>
                 Hunting System
               </h1>
@@ -136,7 +166,21 @@
               </p>
           </div>
         </main>
+        <footer>
+          Background GIF by <a href="https://www.vecteezy.com/members/aleix574986" target="_blank">aleix robert tatjer</a> from vecteezy
+        </footer>        
     </div>
+    <script>
+      window.onload = function () {
+          alert("Click OK to enable background music.");
+          let audio = document.getElementById("bg-music");
+          audio.play();
+      };
+      </script>
+      
+      <audio id="bg-music" loop>
+          <source src="assets/backgroundaudio.mp3" type="audio/mp3">
+      </audio>
     <script src="index.js"></script>
 </body>
 </html>
