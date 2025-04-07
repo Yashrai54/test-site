@@ -1,608 +1,162 @@
+/* 1. Global retro font and base setup */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-  background: linear-gradient(to bottom, black 50%, black);
-  min-height: 100vh;
+  background: url('assets/retro-bg.jpg') no-repeat center center fixed;
+  font-family: 'Press Start 2P', monospace;
+  color: #f0e6d2;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
-  ;
-  color: white;
+  padding: 0;
+  line-height: 1.6;
   background-size: cover;
 }
 
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background: linear-gradient(to bottom, black 40%, white);
-  }
-
-  50% {
-    background: linear-gradient(to bottom, white 40%, black);
-  }
-
-  100% {
-    background: linear-gradient(to bottom, black 40%, white);
-  }
-}
-
-.heading-container {
-  text-align: center;
-  animation: slideIn 1s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-footer {
-  position: fixed;
-  /* Sticks it at the bottom */
-  bottom: 10px;
-  /* Adds a little space from bottom */
-  left: 50%;
-  transform: translateX(-50%);
-  /* Centers it */
-  background: rgba(0, 0, 0, 0.5);
-  /* Semi-transparent black */
-  color: white;
-  /* White text */
-  padding: 5px 10px;
-  border-radius: 5px;
-  /* Rounded corners */
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-}
-
-footer a {
-  color: #1E90FF;
-  /* Light blue for the link */
-  text-decoration: none;
-  /* No underline */
-}
-
-footer a:hover {
-  text-decoration: underline;
-  /* Underline on hover */
-}
-
-.btn {
-  cursor: pointer;
-  position: relative;
-  background: black;
-  color: white;
-  overflow: hidden;
-  transition: transform 0.3s ease, background 0.3s ease;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  background: black;
-  color: white;
-  overflow: hidden;
+/* 2. Card with pixel border effect */
+.card {
+  background: #111;
+  border: 4px solid #e2c275;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 15px #000;
+  border-radius: 0; /* pixel vibe */
   transition: transform 0.3s ease;
 }
 
-/* Hamburger Icon Styling */
-#hamburger {
+.card:hover {
+  box-shadow: 0 0 3px 1px #0ff;
+  border-color: #ffdb58;
+}
+
+/* 3. Retro Button */
+.btn {
+  background: #222;
+  border: 2px solid #f0e68c;
+  color: #fffbcc;
+  padding: 10px 18px;
+  font-size: 10px;
   cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 100;
-  transition: transform 0.3s ease-in-out;
-  /* Smooth rotation */
-}
-
-/* Rotate Hamburger When Active */
-#hamburger.active {
-  transform: rotate(90deg);
-  /* Rotates 90 degrees when clicked */
-}
-
-/* Smooth Menu Opening */
-.menu {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 60px;
-  /* Adjust as needed */
-  right: 10px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.show-menu {
-  display: block;
-}
-
-/* Hover Effect */
-.menu ul li:hover {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-.menu a:hover {
-  color: #333;
-}
-
-.menu {
-  background: rgba(240, 230, 140, 0.95);
-  /* Softer goldenrod with slight transparency */
-  width: 220px;
-  height: auto;
-  position: fixed;
-  right: 10px;
-  /* Slightly spaced from edge */
-  top: 60px;
-  /* Adjusted for better placement */
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  /* Smooth edges */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  /* Subtle shadow */
-  backdrop-filter: blur(10px);
-  /* Glassmorphism effect */
-}
-
-/* Menu List */
-.menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Menu List Items */
-.menu ul li {
-  padding: 12px 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  /* Divider for cleaner look */
-  transition: background 0.3s ease-in-out;
-}
-
-/* Remove border from last item */
-.menu ul li:last-child {
-  border-bottom: none;
-}
-
-/* Menu Links */
-.menu a {
-  color: black;
-  font-family: "Montserrat", sans-serif;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  display: block;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Hover Effect */
-.menu ul li:hover {
-  background: rgba(0, 0, 0, 0.1);
-  /* Slight dark highlight */
-  border-radius: 5px;
-}
-
-.menu a:hover {
-  color: #333;
-  /* Darker text on hover */
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, black 40%, white);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  box-shadow: 0 0 5px #fffbcc;
 }
 
 .btn:hover {
-  transform: scale(1.1);
-  background: #756346;
+  background: #444;
+  color: #fffacd;
+  box-shadow: 0 0 10px #ffd700;
 }
 
-.btn:hover::after {
-  opacity: 1;
+/* 4. Header / Title */
+.heading-container h1,
+h2 {
+  font-size: 16px;
+  color: #f7d794;
+  text-shadow: 2px 2px #000;
+  padding: 10px;
 }
 
-
+/* 5. Typing effect retro style */
 .typing-effect {
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-style: italic;
-  color: #C4AB82;
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  margin-top: 20px;
-  /* Cursor effect */
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #C4AB82;
-  animation: typing 3s steps(40, end), blink 0.8s infinite;
-  text-wrap-style: pretty;
-  animation: blink 1s step-end infinite;
-  /* Add blinking cursor effect */
+  font-size: 10px;
+  color: skyblue;
+  margin-top: 10px;
 }
 
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+/* 6. Menu slide-in */
+#menu {
+  background-color: #1a1a1a;
+  border: 2px solid #f0e68c;
+  color: #f0e68c;
+  padding: 15px;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  display: none;
+  z-index: 100;
+  font-size: 10px;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
+/* 7. Hamburger */
+  #hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1000;
+    color: white; /* or any color that suits your theme */
   }
-
-  to {
-    width: 100%;
-  }
+#logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 10px ;
+  margin-bottom: 0;  
+  border: 2px solid #00ffcc;
+  padding: 5px;
+  background-color: #111;
+  box-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ccff inset;
+  border-radius: 4px;
+  image-rendering: pixelated; /* For pixel art style */
 }
-
-/* Card Styling */
+h1, h2, .typing-effect {
+  color: #FFD700;
+  text-shadow: 2px 2px #301934;
+}
 .card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  margin: 20px auto;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease, background 0.3s ease;
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid #FFD700;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #FFD700;
+  font-family: 'VT323', monospace; /* Another nice retro font */
+  color: #fff;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Heading inside Card */
-.card h1 {
-  font-size: 1.8rem;
-  text-align: center;
-  color: #E0C495;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Paragraph inside Card */
-.card p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.btn {
+  background: #DC143C;
+  border: 3px solid #FFD700;
+  font-size: 14px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
   color: white;
-  text-align: justify;
+  text-shadow: 1px 1px black;
 }
 
-/* Unordered List inside Card */
-.card ul {
-  padding-left: 20px;
+.btn:hover {
+  background: #FF4500;
+}
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+#menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 999;
 }
 
-.card ul li {
-  font-size: 1.2rem;
-  color: #E0C495;
+#menu.show-menu {
+  display: block;
 }
-
-.card ul li p {
-  font-size: 1rem;
-  color: white;
-  margin-top: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    padding: 20px;
-    overflow-x: hidden;
-  }
-
-  .typing-effect {
-    font-size: 1rem;
-    white-space: normal;
-    border-right: none;
-    font-size: 0.4rem;
-    /* Slightly smaller font size */
-  }
-
-  .btn {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
-
-  .card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .card h1 {
-    font-size: 1.5rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  .card ul li {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  /* For small screens */
-  @media (max-width: 480px) {
-    .typing-effect {
-      font-size: 0.9rem;
-      white-space: normal;
-      word-wrap: break-word;
-      font-size: 1.1rem;
-      overflow: auto;
-      /* Allow overflow */
-      white-space: normal;
-      /* Allow text to wrap onto the next line */
-      height: auto;
-      /* Let the content expand naturally */
-      word-wrap: break-word;
-      /* Ensure long words wrap properly */
-    }
-
-    .btn {
-      font-size: 0.9rem;
-      /* Adjust button font size */
-      padding: 8px 16px;
-      /* Adjust padding for smaller screens */
-    }
-
-    p {
-      font-size: 0.4rem;
-      height: auto;
-      /* Let paragraph expand naturally */
-      word-wrap: break-word;
-      /* Break long words */
-      overflow: auto;
-      /* Allow scrolling if content exceeds */
-    }
-  }
-
-}
-
-/* Container Grid for Cards */
-.container-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* Responsive grid */
-  gap: 20px;
-  padding: 20px;
-  justify-content: center;
-}
-
-/* Card Headings */
-.card h1 {
-  font-size: 1.6rem;
+#menu a {
+  color: #00ffff;
+  font-family: 'Press Start 2P', monospace;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
   text-align: center;
-  color: #E0C495;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  margin-bottom: 10px;
-}
-
-/* Subheading (Region) */
-.card h2 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #C4AB82;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* Obtainables Heading */
-.card h3 {
-  font-size: 1.3rem;
-  color: #F4C542;
-  margin-top: 15px;
-  text-decoration: underline;
-  text-align: center;
-}
-
-/* Improve List Styling Inside Cards */
-.card ul {
-  padding-left: 20px;
-}
-
-.card ul li {
-  font-size: 1.1rem;
-  color: #E0C495;
-  margin-bottom: 5px;
-}
-
-
-.card img {
-  width: 100%;
-  /* Makes images responsive */
-  height: 200px;
-  /* Ensures uniform height */
-  border-radius: 10px;
-  /* Smooth rounded corners */
-  object-fit: cover;
-  /* Crops excess and fills the container */
-  object-position: center top;
-  /* Adjusts focus to the top part */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Hover effect */
-.card img:hover {
-  transform: scale(1.05);
-}
-
-/* 🌍 For Tablets (768px and below) */
-@media (max-width: 768px) {
-  .container-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* Adjust grid */
-    gap: 15px;
-    padding: 15px;
-  }
-
-  .card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .card img {
-    height: 180px;
-    /* Slightly smaller images */
-  }
-
-  .card h1 {
-    font-size: 1.5rem;
-  }
-
-  .card h2 {
-    font-size: 1.1rem;
-  }
-
-  .card h3 {
-    font-size: 1.2rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-}
-
-/* 📱 For Mobile Phones (480px and below) */
-@media (max-width: 480px) {
-  .container-grid {
-    grid-template-columns: 1fr;
-    /* Single column layout */
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .card {
-    width: 95%;
-    padding: 12px;
-  }
-
-  .card img {
-    height: 160px;
-    /* Adjust image height for mobile */
-  }
-
-  .card h1 {
-    font-size: 1.3rem;
-  }
-
-  .card h2 {
-    font-size: 1rem;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-  }
-
-  .card p {
-    font-size: 0.9rem;
-  }
-}
-
-/* 🌍 Tablets (768px and below) */
-@media (max-width: 768px) {
-  #hamburger {
-    top: 10px;
-    right: 15px;
-    /* Adjust position for smaller screens */
-    width: 35px;
-    /* Slightly smaller */
-    height: 35px;
-  }
-
-  .menu {
-    width: 180px;
-    /* Reduce menu width */
-    right: -200px;
-    /* Keep it hidden off-screen */
-    padding: 12px;
-  }
-
-  .menu.show {
-    right: 10px;
-    /* Adjust for visibility */
-  }
-
-  .menu ul li {
-    padding: 8px;
-  }
-
-  .menu a {
-    font-size: 16px;
-    /* Slightly smaller text */
-  }
-}
-
-/* 📱 Mobile Phones (480px and below) */
-@media (max-width: 480px) {
-  #hamburger {
-    top: 8px;
-    right: 12px;
-    /* More padding from edge */
-    width: 30px;
-    height: 30px;
-  }
-  .btn{
-    background-color:;
-  }
-
-  .menu {
-    width: 160px;
-    /* Even smaller for compact view */
-    right: 10px;
-    /* Keep it off-screen initially */
-    padding: 10px;
-  }
-
-  .menu.show {
-    right: 5px;
-    /* Ensure it's visible */
-  }
-
-  .menu ul li {
-    padding: 6px;
-  }
-
-  .menu a {
-    font-size: 14px;
-    /* Make text smaller for mobile */
-  }
-
-  #background-video {
-    display: none;
-  }
-  body{
-    background: url("assets/backgroundphone.jpg");
-  }
-  footer{
-    display: none;
-  }
+  transition: all 0.3s ease;
+  font-size: 12px;
+  margin: 5px 0;
 }
